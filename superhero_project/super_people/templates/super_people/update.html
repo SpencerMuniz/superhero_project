@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hero Edit</title>
 </head>
 <body>
-    
+    <h1 class="container-fluid"> Updating {{update_hero.name}}</h1>
+    <form action="{% url 'super_people:update_hero' update_hero.id %}" method="post" class="container">
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+            <input type="text" name="name" id="name" class="form-control" value="{{update_hero.name}}">
+            <label for="name" class="form-label">Name: </label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="alter_ego_name" id="alter_ego_name" class="form-control" value="{{update_hero.alter_ego_name}}">
+            <label for="alter_ego_name" class="form-label">Alter Ego: </label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="primary_ability" id="primary_ability" class="form-control" value="{{update_hero.primary_ability}}">
+            <label for="primary_ability" class="form-label">Primary Ability: </label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="secondary_ability" id="secondary_ability" class="form-control" value="{{update_hero.secondary_ability}}">
+            <label for="secondary_ability" class="form-label">Secondary Ability: </label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="catch_phrase" id="catch_phrase" class="form-control" value="{{update_hero.catch_phrase}}">
+            <label for="catch_phrase" class="form-label">Catchphrase: </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{url 'super_people:index' %}" class="btn btn-primary">Back</a>
+        </form>
 </body>
 </html>
