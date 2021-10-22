@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 app_name = 'super_people'
 urlpatterns = [
@@ -9,5 +10,7 @@ urlpatterns = [
     path('<int:hero_id>/', views.detail, name='detail'),
     path('new/', views.create, name='create'),
     path('update/<int:hero_id>/', views.update, name='update'),
-    path('delete/<int:hero_id>/', views.delete, name='delete')
-]# ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('delete/<int:hero_id>/', views.delete, name='delete'),
+]
+
+urlpatterns += staticfiles_urlpatterns()

@@ -16,6 +16,10 @@
         <a href="{% url 'super_people:delete' hero.id %}">Delete hero</a>
         {% endfor %}
     </ul>
+    <p>
+        {% load static %} 
+        <img src="{% static 'lilah.jpg' %}" alt="Lilah">
+    </p>
 
 </body>
 </html>
